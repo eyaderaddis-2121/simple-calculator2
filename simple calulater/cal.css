@@ -1,0 +1,94 @@
+body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(45deg,#0a0a0a,#57595c);
+      margin: 0;
+    }
+    h1{
+        margin-left: 30px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 35px;
+        font-style: italic;
+        color: #ece6e6;
+    }
+    p{
+        color: #ccc;
+        font-size: 25px;
+        font-display: bold;
+    }
+
+
+    .calculator {
+      background-color: #52451e;
+      padding: 20px;
+      border-radius: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      border-color: #34c759;
+
+    }
+
+    #display {
+      width: 100%;
+      height: 50px;
+      font-size: 30px;
+      text-align: right;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #d7e60e;
+      border-radius: 10px;
+      box-sizing: border-box;
+      font-style: italic;
+      font-display: bold;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+}
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 20px;
+      font-size: 30px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ece6e6;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      border-radius: 30px;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -ms-border-radius: 30px;
+      -o-border-radius: 30px;
+}
+
+    button:hover {
+      background-color: #e4c51a;
+    }
+
+    button.operation {
+      background-color: #ff9500;
+      color: white;
+    }
+
+    button.operation:hover {
+      background-color: #c9bda9;
+    }
+
+    button.equals {
+      grid-column: span 2;
+      background-color: #3e9e56;
+      color: white;
+    }
+
+    button.equals:hover {
+      background-color: #06da3e;
+    }

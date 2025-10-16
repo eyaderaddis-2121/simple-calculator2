@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+ <link rel="stylesheet" href="cal.css">
+</head>
+<body>
+  <div>
+    <h1>simple calculater</h1>
+  <div class="calculator">
+    <input type="text" id="display" readonly />
+    <div class="buttons">
+      <button onclick="clearDisplay()">AC</button>
+      <button onclick="deleteLast()">Del</button>
+      <button onclick="appendOperation('%')" class="operation">%</button>
+      <button onclick="appendOperation('/')" class="operation">/</button>
+      <button onclick="appendOperation('7')">7</button>
+      <button onclick="appendOperation('8')">8</button>
+      <button onclick="appendOperation('9')">9</button>
+      <button onclick="appendOperation('*')" class="operation">*</button>
+      <button onclick="appendOperation('4')">4</button>
+      <button onclick="appendOperation('5')">5</button>
+      <button onclick="appendOperation('6')">6</button>
+      <button onclick="appendOperation('-')" class="operation">-</button>
+      <button onclick="appendOperation('1')">1</button>
+      <button onclick="appendOperation('2')">2</button>
+      <button onclick="appendOperation('3')">3</button>
+      <button onclick="appendOperation('+')" class="operation">+</button>
+      <button onclick="appendOperation('0')">0</button>
+      <button onclick="appendOperation('.')">.</button>
+      <button onclick="calculateResult()" class="equals">=</button>
+    </div>
+  </div>
+  <p class="my">created by: Eyaderaddis Belete</p>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+
+    // Function to update the display
+    function updateDisplay(value) {
+      display.value = value;
+    }
+
+    // Function to append operations or numbers
+    function appendOperation(operation) {
+      display.value += operation;
+    }
+
+    // Function to clear the display
+    function clearDisplay() {
+      updateDisplay('');
+    }
+
+    // Function to delete the last character
+    function deleteLast() {
+      display.value = display.value.slice(0, -1);
+    }
+
+    // Function to calculate the result
+    function calculateResult() {
+      try {
+        const result = eval(display.value); // Use eval to calculate the expression
+        updateDisplay(result);
+      } catch (error) {
+        updateDisplay('Error');
+      }
+    }
+
+    // Handle keyboard input
+    document.addEventListener('keydown', (event) => {
+      const key = event.key;
+
+      // Allow numbers, operators, and decimal point
+      if (/[\d+\-*/.%]/.test(key)) {
+        appendOperation(key);
+      }
+
+      // Handle Enter key for calculation
+      if (key === 'Enter') {
+        calculateResult();
+      }
+
+      // Handle Backspace key for deletion
+      if (key === 'Backspace') {
+        deleteLast();
+      }
+
+      // Handle Escape key for clearing the display
+      if (key === 'Escape') {
+        clearDisplay();
+      }
+    });
+  </script>
+</body>
+</html>
